@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: lightskyblue;
+}
+
+body {
+  margin: 10px;
+}
+
+#input {
+  font-size: 36px;
+  color: blue;
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+  border: 3px solid #00B4CC;
+  padding: 25px;
+  height: 20px;
+  border-radius: 5px 5px 5px 5px;
+  outline: none;
+}
+
+#message {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+#getData {
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	background-color:#79bbff;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:25px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+
+#getData:hover {
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
+}
+#getData:active {
+	position:relative;
+	top:1px;
+}
+
+.logo {
+  height: 100px;
+}
+
+.pic {
+  height: 150px;
+  margin-top: 40px;
+  border-radius: 5%;
+  border: 5px solid #F7545E;
+  border-style: ridge;
+}
+
+.container {
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+}
+
+section {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+}
+
+#usertext {
+  color: blue;
+  font-weight: bold;
+  font-size: 30px;
+}
