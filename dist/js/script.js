@@ -27,32 +27,52 @@ function parseText() {
   let userInput = document.querySelector("#input").value
   let parse = userInput.split(" ")
 
-  for (let i = 0; i < parse.length; i++) {
-    let uber = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${parse[i]}&limit=${count + 1}&offset=${ping2}&rating=G&lang=en`);
-
-    uber
-      .then(data => data.json())
-      .then(data => {
-        console.log(data)
-        console.log(data.pagination.count)
-
-        if (data.pagination.count === 0) {
-          let log = `[Try again!] Could not find a match! count = ${data.pagination.count}`
-          console.log(log)
-        } else {
-          log = `[Found pictures] I will send them now. count =  ${data.pagination.count}`
-          console.log("PASSED", log)
-          console.log("PASSED", parse[i])
-
-          collection.push(`<div class="container">`)
-          collection.push(`<h1 id="usertext">${parse[i]}</h1>`)
-          collection.push(`<img class="pic" src="${data.data[ping].images.original.url}" alt="missing image">`)
-
-
-          document.querySelector("#wrapper").innerHTML = collection.join(" ")
-          console.log("Collection", collection)
-
-        }
-      })
+  // SERVERLESS
+  const urlDataObj = {
+    parse: parse,
+    count: count,
+    ping2: ping2
   }
+
+  try {
+    const giphyText = await fetch('./.netlify/functions/get_giphy', {
+      method: "POST",
+      body: JSON.stringify(urlDataObj)
+    })
+    const giphyText = await giphyText.json()
+    return giphyText
+  } catch (err) {
+    console.log(err)
+  }
+
+  // SERVERLESS
+
+  // for (let i = 0; i < parse.length; i++) {
+  //   let uber = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${parse[i]}&limit=${count + 1}&offset=${ping2}&rating=G&lang=en`);
+
+  //   uber
+  //     .then(data => data.json())
+  //     .then(data => {
+  //       console.log(data)
+  //       console.log(data.pagination.count)
+
+  //       if (data.pagination.count === 0) {
+  //         let log = `[Try again!] Could not find a match! count = ${data.pagination.count}`
+  //         console.log(log)
+  //       } else {
+  //         log = `[Found pictures] I will send them now. count =  ${data.pagination.count}`
+  //         console.log("PASSED", log)
+  //         console.log("PASSED", parse[i])
+
+  //         collection.push(`<div class="container">`)
+  //         collection.push(`<h1 id="usertext">${parse[i]}</h1>`)
+  //         collection.push(`<img class="pic" src="${data.data[ping].images.original.url}" alt="missing image">`)
+
+
+  //         document.querySelector("#wrapper").innerHTML = collection.join(" ")
+  //         console.log("Collection", collection)
+
+  //       }
+  //     })
+  // }
 }

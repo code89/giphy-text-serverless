@@ -1,0 +1,23 @@
+{
+  "name": "gt-masterfuct",
+  "version": "1.0.0",
+  "description": "![Markdown Logo](preview.png)\r <!-- <img src=\"./preview.PNG\" alt=\"Chingu Coupons preview image\"/> -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code89/giphy-text-serverless.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/code89/giphy-text-serverless/issues"
+  },
+  "homepage": "https://github.com/code89/giphy-text-serverless#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
